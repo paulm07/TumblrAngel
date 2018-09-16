@@ -6,7 +6,7 @@ except ImportError:
                 or run pip install pytumblr.""")
 				
 try:
-    import pytumblr
+    import json
 except ImportError:
     sys.exit("""You need json!
                 install it from http://pypi.python.org/pypi/json
