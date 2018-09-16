@@ -1,29 +1,6 @@
-try:
-    import pytumblr
-except ImportError:
-    sys.exit("""You need pytumblr!
-                install it from http://pypi.python.org/pypi/pytumblr
-                or run pip install pytumblr.""")
-				
-try:
-    import pytumblr
-except ImportError:
-    sys.exit("""You need json!
-                install it from http://pypi.python.org/pypi/json
-                or run pip install json.""")
-				
-try:
-    from nested_lookup import nested_lookup
-except ImportError:
-    sys.exit("""You need pytumblr!
-                install it from http://pypi.python.org/pypi/nested_lookup
-                or run pip install nested_lookup.""")
-
-'''				
 import pytumblr
 import json
 from nested_lookup import nested_lookup
-'''
 
 # Authenticate via OAuth
 client = pytumblr.TumblrRestClient(
@@ -37,7 +14,7 @@ client = pytumblr.TumblrRestClient(
 
 #client.follow('ashley-arue.tumblr.com') # follow a blog
 
-data = client.posts('ashley-arue.tumblr.com', limit=20, filter='text')
+data = client.posts('whatdiditcost-everything.tumblr.com', limit=20, filter='text')
 
 working_data = []
 
