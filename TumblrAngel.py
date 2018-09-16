@@ -11,23 +11,30 @@ client = pytumblr.TumblrRestClient(
 )
 
 # Make the request
-#print(client.info())
 
 #client.follow('ashley-arue.tumblr.com') # follow a blog
 
-'''
-#Create a chat post
-chat = """TumblrAngel: @ashley-arue Are you feeling okay?
-TumblrAngel: Based on your last post you might not be.
-TumblrAngel: If you're feeling any sort of ways please don't be afraid to reach out to someone.
-TumblrAngel: Suicide Hotline: 1-888-XXXXX
-TumblrAngel: 7cups.com
-"""
-print(client.create_chat('legendarykittyprince', title="Are You Okay?", state='private', conversation=chat, tags=["Positivity", "ReachingOut"]))
-'''
-
 data = client.posts('whatdiditcost-everything.tumblr.com', limit=20, filter='text')
 
-print(nested_lookup('tags', data['posts']))
+working_data = []
+
+tags = nested_lookup('tags', data['posts'])
+bodies = nested_lookup('body', data['posts'])
+conversations = nested_lookup('conversation', data['posts'])
+dates = nested_lookup('date', data['posts'])
+
+for item in tags:
+	for data in item:
+		working_data.append(data)
+		
+for item in bodies:
+	working_data.append(item)
+
+for item in conversations:
+	working_data.append(item)
 	
+working_data = list(filter(None, working_data))
+	
+print(working_data)
+
 #print(json.dumps(data['posts'], indent=4, sort_keys=True))
