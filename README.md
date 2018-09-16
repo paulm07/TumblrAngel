@@ -15,5 +15,6 @@ If the application detects a user is in danger it will send the user a positive 
 Included is a test file with several blogs that are rated either positive or neutral called test.py. Also included is a test file which immediately triggers the messaging system to show off the messaging system's capabilities. The commands below showcase the usage.
 
 $ python test.py
+
 $ python bad_test.py
 
