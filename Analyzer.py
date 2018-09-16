@@ -1,4 +1,4 @@
-import sched, time, threading
+import sched, time, threading, datetime
 import pytumblr
 import TumblrAngelAnalyzer as sentiment
 import alert
@@ -51,19 +51,25 @@ class Analyzer(object):
 		
 		return " ".join(working_data)
 		
+	def logTimeAndStatus(self):
+		now = datetime.datetime.now()
+		timeAndDate = '[' + now.strftime("%Y-%m-%d %H:%M") + ']'
+		print(timeAndDate + self.blogToWatch + ': ' + self.current_status)
+		
 	# Gets the status of the
 	def updateStatus(self):
 		starttime=time.time()
 		try:
 			while(True):
 				self.current_status = sentiment.getSentiment(self.getBlogDetails())
+				self.logTimeAndStatus()
 				if self.current_status == 'neg':
 					alertUser(self.blogToWatch)
 					break
 				else:
-					time.sleep(CHECKING_INTERVAL - ((time.time() - starttime) % CHECKING_INTERVAL))
+					time.sleep(self.CHECKING_INTERVAL - ((time.time() - starttime) % self.CHECKING_INTERVAL))
 		except KeyboardInterrupt:
-			quit()
+			sys.exit(1)
 		
 	def start(self):
 		t = threading.Thread(target=self.updateStatus)

@@ -21,7 +21,7 @@ except ImportError:
 	
 	
 from Analyzer import Analyzer
-import time
+import time, sys
 
 
 
@@ -32,8 +32,10 @@ ashley.start()
 
 starttime=time.time()
 
-while(True):
-	print(ashley.current_status)
-	time.sleep(15.0 - ((time.time() - starttime) % 15.0))
+try:
+	while(True):
+		#print(ashley.current_status)
+except KeyboardInterrupt:
+	sys.exit(1)
 
 # FINISH MAIN TEST
