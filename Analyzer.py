@@ -1,6 +1,7 @@
 import sched, time, threading
 import pytumblr
 import TumblrAngelAnalyzer as sentiment
+import alert
 from nested_lookup import nested_lookup
 
 class Analyzer(object):
@@ -53,9 +54,16 @@ class Analyzer(object):
 	# Gets the status of the
 	def updateStatus(self):
 		starttime=time.time()
-		while(True):
-			self.current_status = sentiment.getSentiment(self.getBlogDetails())
-			time.sleep(self.CHECKING_INTERVAL - ((time.time() - starttime) % self.CHECKING_INTERVAL))
+		try:
+			while(True):
+				self.current_status = sentiment.getSentiment(self.getBlogDetails())
+				if self.current_status == 'neg':
+					alertUser(self.blogToWatch)
+					break
+				else:
+					time.sleep(CHECKING_INTERVAL - ((time.time() - starttime) % CHECKING_INTERVAL))
+		except KeyboardInterrupt:
+			quit()
 		
 	def start(self):
 		t = threading.Thread(target=self.updateStatus)
