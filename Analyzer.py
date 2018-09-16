@@ -27,7 +27,7 @@ class Analyzer(object):
 	# Returns the current sentiment of the last three posts of a tumblr account
 	def getBlogDetails(self):
 
-		data = self.client.posts(self.blogToWatch + '.tumblr.com', limit=POST_THRESHOLD, filter='text')
+		data = self.client.posts(self.blogToWatch + '.tumblr.com', limit=self.POST_THRESHOLD, filter='text')
 
 		working_data = []
 		#print(data)
@@ -55,7 +55,7 @@ class Analyzer(object):
 		starttime=time.time()
 		while(True):
 			self.current_status = sentiment.getSentiment(self.getBlogDetails())
-			time.sleep(CHECKING_INTERVAL - ((time.time() - starttime) % CHECKING_INTERVAL))
+			time.sleep(self.CHECKING_INTERVAL - ((time.time() - starttime) % self.CHECKING_INTERVAL))
 		
 	def start(self):
 		t = threading.Thread(target=self.updateStatus)

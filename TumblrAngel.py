@@ -15,7 +15,7 @@ except ImportError:
 try:
     from nested_lookup import nested_lookup
 except ImportError:
-    sys.exit("""You need pytumblr!
+    sys.exit("""You need nested_lookup!
                 install it from http://pypi.python.org/pypi/nested_lookup
                 or run pip install nested_lookup.""")
 	
