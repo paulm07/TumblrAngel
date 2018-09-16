@@ -27,14 +27,28 @@ import time, sys
 
 # MAIN TEST
 
-ashley = Analyzer('ashley-arue')
-ashley.start()
+#ashley = Analyzer('ashley-arue')
+#ashley.start()
 
-starttime=time.time()
+#starttime=time.time()
 
+if len(sys.argv) <= 1:
+	print("Error! Invalid number of blogs provided!")
+	sys.exit(2)
+
+# Made it this far, need to make blog dictionary
+blogs = []
+
+# Keeps all blogs happily in an array
+for x in range(1, len(sys.argv)):
+	blogs.append(Analyzer(sys.argv[x]))
+	
+for analyzer in blogs:
+	analyzer.start()
+	
 try:
 	while(True):
-		#print(ashley.current_status)
+		continue
 except KeyboardInterrupt:
 	sys.exit(1)
 

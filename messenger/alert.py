@@ -58,4 +58,4 @@ def alertUser(target_user):
 	user_message_box.send_keys("Or you could also do it anonymously at www.7cups.com\n")
 
 	time.sleep(3)
-	user_message_box.send_keys("Remember... You are not alone!")
+	user_message_box.send_keys("Remember... You are not alone!\n")
