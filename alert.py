@@ -19,7 +19,7 @@ def alertUser(target_user):
 
 	# Username and Password
 	username = 'pmoli004@fiu.edu'
-	password = 'ShellHacks2018'
+	password = ''
 
 	# Puts in the username and goes to the next screen
 	id_box = driver.find_element_by_id('signup_determine_email')

@@ -19,10 +19,7 @@ class Analyzer(object):
 		self.current_status = "neu"
 		self.blogToWatch = blogToWatch
 		self.client = pytumblr.TumblrRestClient(
-		  '4ZWlBQ09MpXd0sJElHtCrgKfrzkq4cnLsKGYOuFsyRA7n2yvev',
-		  'VV65lUa7NPk2vIhYbwTKpNFtCDa74CZj0YkOPY91OBfZB2aXwY',
-		  'l8KeEdg8V7jTJeAMtIpQvuXMGYg9YWO2BU3fLNyedRwjvvpxoX',
-		  'AdxaT3RrXFyOQdDoYcqk36FCigrM1iFXaFWcECYEXxTC5I3WMQ'
+
 		)
 		
 	# Returns the current sentiment of the last three posts of a tumblr account
