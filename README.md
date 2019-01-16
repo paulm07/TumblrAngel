@@ -2,6 +2,8 @@
 
 ### Description ###
 
+EDIT: This application won the Oath Inc. Challenge at Shell Hacks 2018!!!
+
 This application attempts to identify users on Tumblr that might be a danger to themselves or others based on their recent post history.
 
 It attempts to intervene by actively sending a private message to users who fall within this category. It is our understanding that Tumblr already tries to do this by diverting a user who is searching for certain tags or terms to a help page with useful contact information for counseling. This is a passive approach.
